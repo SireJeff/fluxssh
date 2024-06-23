@@ -1,39 +1,70 @@
 # Installing WSL and Docker on Windows
 
-This guide outlines the steps to install Windows Subsystem for Linux (WSL) and Docker on a Windows machine using PowerShell.
+This guide provides step-by-step instructions to install WSL (Windows Subsystem for Linux) and Docker on a Windows machine using PowerShell.
 
 ## Prerequisites
 
-- Windows 10 (64-bit) or higher
-- System supports Hyper-V virtualization
+Before you begin, ensure you have:
+- Windows 10 or later (64-bit)
+- PowerShell with administrative privileges
 
-## Steps
+## Step 1: Enable WSL Feature
 
-powershell
-# Step 1: Enable WSL Feature
-dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
+1. Open PowerShell as Administrator.
+2. Run the following command to enable WSL:
 
-# Step 2: Enable Virtual Machine Feature
-dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
+```
+dism.exe /online /enable-feature /featurename
+/all /norestart
+```
 
-# Step 3: Install WSL 2
-# Download and install WSL 2 Linux kernel update package from Microsoft's GitHub releases page
 
-# Set WSL 2 as the default version
+3. Restart your computer if prompted.
+
+## Step 2: Install a Linux Distribution
+
+1. Open the Microsoft Store.
+2. Search for your preferred Linux distribution (e.g., Ubuntu, Debian).
+3. Select and install it.
+
+## Step 3: Set WSL Version
+
+1. Open PowerShell as Administrator.
+2. Run the following commands to set WSL to version 2:
+
+```
 wsl --set-default-version 2
-# Step 4: Install a Linux Distribution
-# Install your preferred Linux distribution from Microsoft Store
+```
 
-# Step 5: Install Docker Desktop
-# Download Docker Desktop for Windows from Docker Hub
-# Run the installer and follow on-screen instructions
+Replace `<DistributionName>` with your Linux distribution name:
 
-# Step 6: Verify Installation
-# Verify WSL installation
-wsl --list --verbose
+```
+wsl --set-version <DistributionName> 2
+```
 
-# Verify Docker installation
+## Step 4: Install Docker Desktop
+
+1. Download Docker Desktop for Windows from [Docker Hub](https://hub.docker.com/).
+2. Run the installer and follow the on-screen instructions.
+
+## Step 5: Verify Installation
+
+1. After installation, Docker Desktop should start automatically.
+2. Open PowerShell or any terminal.
+3. Check Docker version:
+
+```
 docker --version
-docker run hello-world
+```
 
-This format keeps all the instructions within a single code block, suitable for direct copying into your `README.md` file on GitHub. Adjustments can be made based on specific requirements or preferences.
+
+You should see Docker version information if installed correctly.
+
+## Troubleshooting
+
+- For issues, refer to Docker and WSL documentation or community forums.
+
+## Additional Resources
+
+- [WSL Documentation](https://docs.microsoft.com/en-us/windows/wsl/)
+- [Docker Documentation](https://docs.docker.com/)
