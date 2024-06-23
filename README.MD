@@ -9,7 +9,7 @@ This guide outlines the steps to install Windows Subsystem for Linux (WSL) and D
 
 ## Steps
 
-```powershell
+powershell
 # Step 1: Enable WSL Feature
 dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
 
